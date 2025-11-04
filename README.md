@@ -29,3 +29,26 @@ By using simple commands, anyone in the community can explore live data from Mem
 3. The bot returns an embedded message summarizing results and related posts.
 
 Example:
+
+📊 → Bot responds with clusters, summaries, and a relevant post link.
+
+---
+
+## 📸 Proof of Functionality
+Due to deployment limitations, functionality is demonstrated with screenshots.  
+👉 [View Proofs Folder](https://github.com/alarsabandy7-lab/Membit-Cluster-Agent/tree/proofs)
+
+---
+
+## 📘 Notes
+This project was **coded 100% on a mobile phone via Replit**, showing that Membit’s ecosystem enables lightweight, accessible, and creative real-world integrations.
+
+---
+
+### 🏁 Credits
+Developed by **Mettzy_**  
+Built for the **Membit Half-Hackathon 2025**
+
+---
+> ⚠️ Note: Early screenshots may still show the label “Airdrop Hunter Bot” — this was the initial internal name during prototype testing on Replit. The final version (Context Agent) retains the same functionality with updated branding.
+
