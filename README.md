@@ -1,40 +1,70 @@
-# 🤖 Context Agent - Membit Hackathon Submission
+# 🧠 Membit Intel Agent – Deep Hunt Bot
+![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)
+![Discord.py](https://img.shields.io/badge/Discord.py-API-green?logo=discord)
+![Membit](https://img.shields.io/badge/Membit-Data%20Agent-purple)
+![Replit](https://img.shields.io/badge/Built%20on-Replit-orange)
 
-**Project by: Mettzy_
+**Membit Intel Agent** is a Discord bot that performs real-time data hunts using **Membit’s MCP and API**, allowing users to fetch live clusters and relevant posts directly from Discord.
 
 ---
 
-### 💡 Project Description 
+## 🚀 Overview
+This project was created for the **Membit Half-Hackathon**, demonstrating how **Membit’s real-time contextual data** can be integrated into chat-based environments.
 
-This is an advanced **Data Intelligence Agent** built for Discord, leveraging the Membit API to bring real-time social context directly to the user's chat.
+With just a few simple commands, anyone can explore *live data clusters, summaries, and posts* from Membit — all inside Discord.
 
-The agent transforms general search inquiries into "Deep Hunts," providing users with not only data trends but also specific, relevant source material.
+---
 
-### 🔥 Key Features and Implementation (Fitur Utama & Implementasi)
+## ⚙️ Features
+- 🔍 **`!hunt <keyword>` — Deep Hunt Mode**  
+  Fetches clusters and related posts directly from Membit’s API.  
+- 💡 **Dynamic Sentiment Color System**  
+  - 🟢 Green → positive/trending topics  
+  - 🔴 Red → risk/scam/controversy  
+  - 🔵 Blue → neutral/general context  
+- 🤖 **Utility Commands**  
+  - `!ping` → check bot status  
+  - `!help` → show available commands  
+- 🧩 **Clean, Minimal, and Informative Output**  
+  Displays data in professional Discord embeds with direct links to source posts.
 
-| Feature | Implementation Details |
+---
+
+## 🛠️ Tech Stack
+| Component | Details |
 | :--- | :--- |
-| **Deep Hunt (`!hunt <topic>`)** | The bot executes a multi-step query: it first calls `v1/clusters/search` for trends, and then calls `v1/posts/search` for *specific content* relevant to each found cluster. This ensures highly contextual results. |
-| **Dynamic Sentiment Analysis** | The result Embeds automatically change color (Red/Green/Blue) based on keywords (e.g., "scam," "win," "controversy") found in the data, giving users an immediate context/risk level. |
-| **Clean UI & Traceability** | Results are displayed in clean Discord Embeds, with all titles and footers professionalized. Crucially, each finding includes a clickable link to the original source post. |
-| **Bot Presence** | Displays the status `Watching !help for info` for improved professionalism. |
-
-### 🛠️ Technical Stack (Tumpukan Teknologi)
-
-* **Language:** Python 3+
-* **Libraries:** `discord.py`, `requests` (for API calls)
-* **Platform:** Deployed on Replit
-
-### 🥇 The Story Behind the Build
-
-This entire project, including all coding, debugging, and testing of the dual-API workflow, was executed **100% using a mobile phone** and the Replit platform. This demonstrates the high accessibility and power of the Membit ecosystem.
-
-### 📜 How to Use
-
-1.  **`!help`**: Displays the clean help menu.
-2.  **`!hunt <search_term>`**: Performs a Deep Hunt.
-    * Example: `!hunt airdrop`
-    * Example: `!hunt band protocol`
+| **Language** | Python 3 |
+| **Libraries** | `discord.py`, `requests`, `json`, `os` |
+| **APIs Used** | Membit MCP / Membit REST API |
+| **Platform** | Replit (Mobile Build) |
 
 ---
-*Thank you for reviewing my submission.*
+
+## 🧪 How It Works
+1. User types: `!hunt <keyword>`  
+2. The bot performs a dual Membit API query:  
+   - `v1/clusters/search` → Finds live clusters & summaries  
+   - `v1/posts/search` → Finds related source posts  
+3. The bot returns an embedded summary with colors and clickable source links.  
+
+Example:
+📊 → Bot responds with clusters, summaries, and a relevant post link.
+
+---
+
+## 📸 Proof of Functionality
+Due to deployment limitations, functionality is demonstrated with screenshots.  
+👉 [View Proofs Folder](https://github.com/alarsabandy7-lab/Membit-Cluster-Agent/tree/proofs)
+
+---
+
+## 📘 Notes
+This project was **coded 100% on a mobile phone via Replit**, showing that Membit’s ecosystem enables lightweight, accessible, and creative real-world integrations.
+
+---
+
+### 🏁 Credits
+Developed by **Mettzy_**  
+Built for the **Membit Half-Hackathon 2025**
+
+---
