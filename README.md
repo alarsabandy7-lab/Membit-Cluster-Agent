@@ -13,8 +13,20 @@ This project was created for the Membit Half-Hackathon, demonstrating how Membit
 
 With just a few simple commands, anyone can explore live data clusters, summaries, and posts from Membit — all inside Discord.
 
-
----
+🖥️V35 How it works
+User (Discord)
+   ↓
+!hunt <keyword>
+   ↓
+Membit API Layer
+   ├── v1/clusters/search
+   └── v1/posts/search
+   ↓
+Context Processor (Lite)
+   ↓
+Embed Builder (Color-coded)
+   ↓
+Discord Output---
 
 ⚙️ Features
 
