@@ -5,7 +5,7 @@
 ![Replit](https://img.shields.io/badge/Built%20on-Replit-orange)
 ![Hackathon](https://img.shields.io/badge/Hackathon-Submission✅-brightgreen)
 
-**Membit Intel Agent** is a Discord bot that performs real-time data hunts using **Membit’s MCP and API**, allowing users to fetch live clusters and relevant posts directly from Discord.
+**Membit Cluster Agent** is a Discord bot that performs real-time data hunts using **Membit’s MCP and API**, allowing users to fetch live clusters and relevant posts directly from Discord.
 
 ---
 
