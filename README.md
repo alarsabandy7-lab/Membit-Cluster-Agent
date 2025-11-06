@@ -2,51 +2,43 @@
 
     
 
-Membit Cluster Agent is a Discord bot designed for real-time contextual intelligence. It integrates Membit’s MCP and API to fetch live clusters, summaries, and related posts directly into Discord.
+Membit Cluster Agent is a Discord bot that performs real-time data hunts using Membit’s MCP and API, allowing users to fetch live clusters and relevant posts directly from Discord.
 
 
 ---
 
 🚀 Overview
 
-Built for the Membit Half-Hackathon, this project demonstrates how Membit’s real-time data can be transformed into actionable insights in chat environments.
+This project was created for the Membit Half-Hackathon, demonstrating how Membit’s real-time contextual data can be integrated into chat-based environments.
 
-With simple commands, users can explore:
-
-Live clusters
-
-Context summaries
-
-Related posts
-
-Color-coded risk signals
-
+With just a few simple commands, anyone can explore live data clusters, summaries, and posts from Membit — all inside Discord.
 
 
 ---
 
 ⚙️ Features
 
-🔍 !hunt <keyword> – Deep Hunt Mode
-Retrieves clusters and related posts directly from Membit.
+🔍 !hunt <keyword> — Deep Hunt Mode
+Fetches clusters and related posts directly from Membit’s API.
 
 💡 Dynamic Sentiment Color System
 
-🟢 Positive / trending topics
+🟢 Green → positive/trending topics
 
-🔴 Risk / scam / controversy
+🔴 Red → risk/scam/controversy
 
-🔵 Neutral / general context
+🔵 Blue → neutral/general context
 
 
 🤖 Utility Commands
 
-!ping – Bot status check
+!ping → check bot status
 
-!help – List of commands
+!help → show available commands
 
 
-🧩 Clean Output Professional Discord embeds with source links and structured context.
+🧩 Clean, Minimal, and Informative Output
+Displays data in professional Discord embeds with direct links to source posts.
 
 
 
@@ -58,8 +50,8 @@ Component	Details
 
 Language	Python 3
 Libraries	discord.py, requests, json, os
-APIs	Membit MCP / Membit REST API
-Platform	Replit (Mobile Development)
+APIs Used	Membit MCP / Membit REST API
+Platform	Replit (Mobile Build)
 
 
 
@@ -70,24 +62,25 @@ Platform	Replit (Mobile Development)
 1. User types: !hunt <keyword>
 
 
-2. Bot triggers a dual Membit API query:
+2. The bot performs a dual Membit API query:
 
-v1/clusters/search – Retrieves live clusters and summaries
+v1/clusters/search → Finds live clusters & summaries
 
-v1/posts/search – Retrieves related source posts
-
-
-
-3. Bot generates a structured, color-coded Discord embed.
+v1/posts/search → Finds related source posts
 
 
+
+3. The bot returns an embedded summary with colors and clickable source links.
+
+
+
+Example:
+📊 → Bot responds with clusters, summaries, and a relevant post link.
 
 
 ---
 
-🧠 System Architecture & Vision
-
-✅ Current Build (v37 Lite)
+🧠 System Architecture (v37 Lite – Current Build)
 
 User (Discord)
    ↓
@@ -97,25 +90,16 @@ Membit API Layer
    ├── v1/clusters/search
    └── v1/posts/search
    ↓
-Context Processor (Keyword Logic)
+Context Processor (Lite)
    ↓
-Embed Builder
+Embed Builder (Color-coded)
    ↓
 Discord Output
-
-Notes:
-
-No Gemini auto-insight due to key/payment limitations.
-
-Sentiment uses keyword-based detection.
-
-Fully functional and stable for real-time hunting.
-
 
 
 ---
 
-🚀 Future Vision (v38+)
+🚀 Final Vision (v38+ – Full Cluster Agent)
 
 User (Discord)
    ↓
@@ -123,44 +107,31 @@ User (Discord)
    ↓
 Membit Dual API
    ↓
-AI Context Layer (Gemini 2.5 Pro)
-   ├── Auto Insight Summary
-   ├── Trend & Risk Scoring
-   └── Context Fusion
+AI Insight Layer (Gemini 2.5 Pro)
+      ├── Auto Context Summary
+      ├── Trend & Risk Scoring
+      └── Sentiment Intelligence
    ↓
-Smart Embed Generator
-   ↓
-Discord Real-time Insight
+Smart Embed Output
 
-This transforms Membit’s raw data → structured insight → user-friendly intelligence.
+> Goal: Transform raw Membit clusters → one-block intelligence insight directly in Discord.
+
+
 
 
 ---
 
 📸 Proof of Functionality
 
-Screenshots provided due to environment limitations.
-👉 proofs/ folder in GitHub repository.
+Due to deployment limitations, functionality is demonstrated with screenshots.
+👉 Proofs folder link
 
 
 ---
 
-⚠️ Known Limitations
+📘 Notes
 
-Gemini 2.5 Pro not integrated (key/paywall restrictions)
-
-Replit SSL patching required in some environments
-
-AI Insight still handled manually via !analyze
-
-
-
----
-
-📘 Development Notes
-
-This entire project was built 100% on a mobile phone using Replit.
-Despite constraints, it demonstrates that Membit enables lightweight yet powerful integrations.
+This project was coded 100% on a mobile phone via Replit, showing that Membit’s ecosystem enables lightweight, accessible, and creative real-world integrations.
 
 
 ---
@@ -168,10 +139,11 @@ Despite constraints, it demonstrates that Membit enables lightweight yet powerfu
 🏁 Credits
 
 Developed by Mettzy_
-Submission for Membit Half-Hackathon 2025
+Built for the Membit Half-Hackathon 2025
 
-> Vision:
+> Vision Statement:
 “From raw social data to actionable context — directly inside chat.”
+— Mettzy_, 2025
 
 
 
