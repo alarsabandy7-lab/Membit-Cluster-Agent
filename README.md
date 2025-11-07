@@ -122,7 +122,7 @@ See Membit Context Agent in action:
 ---
 
 ### 👤 Author
-**@maybeitsmet**  
+**Mettzy**
 AI integrator | Story-driven builder | Membit Hunter  
 Discord Bot Version: **V55 — Stable**
 
