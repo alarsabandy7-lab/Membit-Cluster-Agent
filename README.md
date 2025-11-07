@@ -1,128 +1,160 @@
-# 🧠 Membit Cluster Agent – Deep Hunt Bot  
-![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)
-![Discord.py](https://img.shields.io/badge/Discord.py-API-green?logo=discord)
-![Membit](https://img.shields.io/badge/Membit-Data%20Agent-purple)
-![Replit](https://img.shields.io/badge/Built%20on-Replit-orange)
-![Hackathon](https://img.shields.io/badge/Hackathon-Submission✅-brightgreen)
+# 🧠 Membit Context Agent — V55 (Stable Release)
 
-**Membit Cluster Agent** is a Discord bot that performs real-time data hunts using **Membit’s MCP and API**, allowing users to fetch live clusters and relevant posts directly from Discord.
+### 🚀 Overview
+**Membit Context Agent** is a Discord bot powered by **Membit’s Real-Time Clusters** and **Gemini AI**, designed to deliver contextual insights about real-world social data — from crypto and tech to human behavior.
+
+Built for the **Membit Half-Hackathon**, this project demonstrates how AI can *see beyond static data* by tapping into Membit’s living, breathing context signals.
 
 ---
 
-## 🚀 Overview
-This project was created for the **Membit Half-Hackathon**, demonstrating how **Membit’s real-time contextual data** can be integrated into chat-based environments.
+### 🎯 Core Features
 
-With just a few simple commands, anyone can explore *live data clusters, summaries, and posts* from Membit — all inside Discord.
-
----
-
-## ⚙️ Features
-- 🔍 **`!hunt <keyword>` — Deep Hunt Mode**  
-  Fetches clusters and related posts directly from Membit’s API.  
-- 💡 **Dynamic Sentiment Color System**  
-  - 🟢 Green → positive/trending topics  
-  - 🔴 Red → risk/scam/controversy  
-  - 🔵 Blue → neutral/general context  
-- 🤖 **Utility Commands**  
-  - `!ping` → check bot status  
-  - `!help` → show available commands  
-- 🧩 **Clean, Minimal, and Informative Output**  
-  Displays data in professional Discord embeds with direct links to source posts.
+| Command | Description |
+|----------|-------------|
+| `!hunt <keyword>` | Searches Membit clusters for real-time data and generates AI-powered insights |
+| `!analyze <text>` | Performs quick sentiment and context analysis |
+| `!whatis <term>` | Returns concise definitions of Web3 or AI terms |
+| `!trend <keyword>` | Summarizes trending topics from Membit’s real-time clusters |
+| `!compare <A> vs <B>` | (Experimental) Compares two topics based on Membit data and Gemini reasoning |
+| `!help` | Displays all available commands |
 
 ---
 
-## 🛠️ Tech Stack
-| Component | Details |
-| :--- | :--- |
-| **Language** | Python 3 |
-| **Libraries** | `discord.py`, `requests`, `json`, `os` |
-| **APIs Used** | Membit MCP / Membit REST API |
-| **Platform** | Replit (Mobile Build) |
-
----
-
-## 🧪 How It Works
-1. User types: `!hunt <keyword>`  
-2. The bot performs a dual Membit API query:  
-   - `v1/clusters/search` → Finds live clusters & summaries  
-   - `v1/posts/search` → Finds related source posts  
-3. The bot returns an embedded summary with colors and clickable source links.  
-
-Example:
-📊 → Bot responds with clusters, summaries, and a relevant post link.
-
----
-
-## 🧠 System Architecture & Final Vision
-
-### 🧩 Current Build (v37 Lite)
+### 🧩 Architecture
 ```
-User (Discord)
-   ↓
-!hunt <keyword>
-   ↓
-Membit API Layer
-   ├── v1/clusters/search
-   └── v1/posts/search
-   ↓
-Context Processor (Manual Analyze)
-   ↓
-Dynamic Embed Builder
-   ↓
-Discord Output (Color-coded Insight)
+User → Discord Bot → Membit API → Gemini AI → Contextual Insight → Discord Channel
 ```
-> 🔹 This version still runs **without direct Gemini integration**.  
-> Sentiment is analyzed using **keyword-based logic** and structured output.  
-> Despite limitations, it already reflects Membit’s data context potential.
+
+Membit Context Agent acts like a **digital detective**, combining Membit’s 3,000+ real-time clusters (including 900 crypto-related) with Gemini’s reasoning to create short, analytical stories — *AI with awareness.*
 
 ---
 
-### 🚀 Future Vision (v38+ / Final AI Stage)
+### ⚙️ Tech Stack
+
+- **Language:** Python 3.10+
+- **Framework:** `discord.py`
+- **Libraries:** `requests`, `google-generativeai`, `python-dotenv`
+- **APIs:**
+  - Membit API (Real-Time Cluster & Post Search)
+  - Google Gemini API
+- **Integration:** Discord Bot
+
+---
+
+### 🧱 Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/<your-username>/membit-context-agent.git
+   cd membit-context-agent
+   ```
+
+2. **Install dependencies**
+   ```bash
+   pip install -U discord.py requests google-generativeai python-dotenv
+   ```
+
+3. **Create a `.env` file**
+   ```
+   DISCORD_TOKEN=your_discord_bot_token
+   MEMBIT_API_KEY=your_membit_api_key
+   GEMINI_API_KEY=your_gemini_api_key
+   COOLDOWN_SECONDS=12
+   ```
+
+4. **Run the bot**
+   ```bash
+   python main.py
+   ```
+
+---
+
+### 🧠 Vision
+> “AI without real-world context is just prediction.  
+> Membit gives it understanding.”
+
+This project showcases why **AI must learn from real data** — not frozen datasets.  
+By merging Membit’s live context streams with reasoning models, we aim to build **adaptive intelligence** that responds to evolving trends, human emotions, and market behaviors.
+
+---
+
+### 🎥 Demo Video
+See Membit Context Agent in action:  
+👉 [Watch the Demo](https://youtu.be/your-demo-link-here)
+
+*(Replace this link with your actual YouTube or Drive demo video once ready.)*
+
+---
+
+### 🏆 Hackathon Relevance
+✅ Uses Membit MCP / API directly  
+✅ Real-world, interactive AI application  
+✅ Demonstrates why “AI needs real data”  
+✅ Strong storytelling and creative presentation  
+
+---
+
+### 💬 Example Commands
 ```
-User (Discord)
-   ↓
-!hunt <keyword>
-   ↓
-Membit Dual API
-   ├── Contextual Clusters
-   └── Real-time Posts
-   ↓
-AI Context Layer (Gemini 2.5 Pro)
-   ├── Auto Insight Summarization
-   ├── Sentiment Classification
-   └── Risk/Trend Scoring
-   ↓
-Smart Embed Generator
-   ↓
-Discord Real-time Insight Stream
+!hunt bitcoin
+!analyze Market seems unstable lately
+!whatis DeFi
+!trend ethereum
+!compare Solana vs Avalanche
 ```
-> 🧠 The goal is to let Membit’s data be **auto-analyzed by Gemini**, returning one cohesive “context intelligence block” inside Discord — an instant mini report combining raw data + human-like summary.
 
 ---
 
-### 🔮 Why This Matters
-This project isn’t just a bot — it’s a **prototype for a data-to-insight pipeline**:
-- Shows how Membit data can power *real-time contextual agents.*
-- Demonstrates a *mobile-only dev environment* achieving functional automation.
-- Builds groundwork for a scalable AI layer that turns context → decision insight.
+### 🔮 Future Roadmap
+- Membit Dashboard Integration  
+- Context memory for trend evolution  
+- Visual sentiment timeline per cluster  
+- Adaptive insight threading  
+- Lightweight caching for API optimization  
 
 ---
 
-## 📸 Proof of Functionality
-Due to deployment limitations, functionality is demonstrated with screenshots.  
-👉 [View Proofs Folder](https://github.com/alarsabandy7-lab/Membit-Cluster-Agent/tree/proofs)
+### 🔒 Notes
+- Experimental commands (`!compare`) may produce variable outputs.  
+- This bot **does not store user data**.  
+- Outputs are AI-generated for educational and analytical purposes.
 
 ---
 
-## 📘 Notes
-This project was **coded 100% on a mobile phone via Replit**, showing that Membit’s ecosystem enables lightweight, accessible, and creative real-world integrations.
+### 👤 Author
+**@maybeitsmet**  
+AI integrator | Story-driven builder | Membit Hunter  
+Discord Bot Version: **V55 — Stable**
 
 ---
 
-### 🏁 Credits
-Developed by **Mettzy_**  
-Built for the **Membit Half-Hackathon 2025**
+### 📜 License
 
-> **Vision Statement:**  
-> “From raw social data to actionable context — directly inside chat.”  
-> — *Mettzy_, 2025*
+```
+MIT License
+
+Copyright (c) 2025 maybeitsmet
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the “Software”), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
+---
+
+> 🧠 *“Context isn’t just data — it’s awareness. Membit gives AI its eyes.”*  
+> — Membit Context Agent (V55)
