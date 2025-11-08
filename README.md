@@ -1,187 +1,230 @@
-# 🧠 **Membit Context Agent — V61 (Narrative Build + Stable Release)**
+🧠 Membit Context Agent
 
-A dual-purpose submission for the **Membit Half-Hackathon**:
+    
 
-1. ✅ A stable, production-ready Discord bot powered by real-time Membit data  
-2. ✅ A narrative-style roadmap showing the evolution toward full MCP integration  
+Mettzy_ — Context Agent for the Membit Half‑Hackathon
 
-V61 demonstrates what can be built **today**, while revealing a clear path for **V-Next**.
+A lightweight, mobile-first Discord bot that performs Deep Hunts using Membit’s MCP / REST APIs and (optionally) Gemini for summarized AI insights. Built and iterated primarily on mobile (Replit). This repo contains the code, docs, and proofs used for the hackathon submission.
 
----
-
-# 🚀 1. Introduction
-
-**Membit Context Agent** transforms real-time cluster signals from the Membit API into contextual insights inside Discord.
-
-This system combines:
-- **Membit Real-Time Data (Clusters + Posts)**
-- **Gemini AI Reasoning**
-- **Async-first Python architecture**
-- **Full sanitization & fallback logic**
-
-> **Goal:** Give AI real-world awareness, not static training data.
 
 ---
 
-# ✅ 2. Core Stable Features (Fully Working)
+🚀 Project Overview
 
-### **`!hunt <keyword>` — Real-Time Cluster Scanner**
-- Fetches up to 6 live clusters from Membit  
-- Sanitizes text  
-- Runs a single optimized Gemini call (no rate-limit issues)  
-- Outputs: AI insight, cluster summaries, related posts, color-coded risk level  
+The agent turns plain queries into actionable context by combining:
 
----
+v1/clusters/search — finds topical clusters and summaries
 
-### **`!analyze <text>` — AI Sentiment Context**
-- Short reasoning-based sentiment analysis  
-- Includes fallback for Gemini “Empty parts” edge case  
+v1/posts/search — fetches example source posts
 
----
+(Optional) Gemini — produces a concise human-style insight
 
-### **`!whatis <term>` — AI Dictionary**
-- 1–2 sentence definitions  
-- Ideal for Web3, AI, and technical terms  
 
----
+Primary goals:
 
-### **`!trend <keyword>` — Pure Data Trend Scan**
-Counts positive / risk signals in real-time clusters.  
-Zero AI usage = stable and fast.
+Demonstrate how real‑time social data can feed AI agents.
+
+Provide a production-friendly, rate-limit-aware implementation that works with limited keys.
+
+Ship a clear roadmap for MCP & deeper integration.
+
+
 
 ---
 
-### **`!context` — Hackathon Context Explainer**
-A hardcoded explanation of why AI needs real-world context.
+⚙️ Features
+
+!hunt <keyword> — Deep Hunt (clusters + top related posts).
+
+!trend <keyword> — Quick trend scan (positive vs risk indicators).
+
+!analyze <text> — (Optional) Gemini sentiment analysis.
+
+!whatis <term> — Short definition via Gemini.
+
+!risk <text> — Local heuristic risk evaluation (keyword based).
+
+!mcp <method[:payload]> — Safe MCP sandbox calls (read-only, heuristic helpers).
+
+
+Embeds are color-coded (green / blue / red) based on heuristics to give instant risk/opp context.
+
 
 ---
 
-# 🔮 3. V-Next Roadmap (Narrative Build)
+🧩 System Architecture (high level)
 
-V61 contains 4 *intentionally disabled* commands.  
-Each outputs a **Roadmap Explanation** showing technical limitations + future plans.
+User (Discord)
+   ↓  (!hunt)
+Membit API Layer
+  ├─ /clusters/search
+  └─ /posts/search
+   ↓
+Local Context Processor (cleaning, heuristics)
+   ↓
+(Optional) Gemini AI (1 call per hunt to reduce rate usage)
+   ↓
+Discord Embed Generator (color-coded)
 
----
+Notes:
 
-### **`!compare` — MCP Comparator (Future)**
-Planned to use:
-requires **cluster ids**, not labels → needs new data structure.
+AI calls are minimized to avoid 429s and safety blocks.
 
----
+MCP is simulated / sandboxed in the repository to demonstrate safe MCP-style interactions without exposing privileged operations.
 
-### **`!risk` — advanced risk scoring (future)**
-blocked by `gemini-flash-latest` model limitations on negative logic.
 
----
-
-### **`!hot` — real-time trending (future)**
-requires sort/filter parameters not yet documented in the api.
-
----
-
-### **`!dive <cluster_id>` — deep data dive (future)**
-needs:
-- label-to-id mapping  
-- access to `/clusters/info`  
-
-this shapes v-next into a **proactive context agent**.
 
 ---
 
-# 🧩 4. architecture
-### Core design decisions:
-- Async-first (`aiohttp`)  
-- One AI call per workflow  
-- Text-cleaning on all inputs  
-- Cooldown spam protection  
-- Fallback logic for AI inconsistencies  
+🛠️ Tech stack
+
+Python 3.10+
+
+discord.py
+
+aiohttp for async HTTP
+
+google-generativeai (optional — Gemini)
+
+python-dotenv for config
+
+
 
 ---
 
-# ⚙️ 5. Installation
+🧭 Quick Start — Install & Run
 
-### Clone
-```bash
-git clone https://github.com/<your-username>/Membit-Cluster-Agent.git
-cd Membit-Cluster-Agent
+> Copy-paste box (works in Linux / macOS / Replit terminal). Modify .env with your keys.
 
-###Install Dependencies
+
+
+# 1) Create & activate venv (optional but recommended)
+python3 -m venv .venv
+source .venv/bin/activate
+
+# 2) Install dependencies
 pip install -U discord.py aiohttp google-generativeai python-dotenv
 
-###Create .env
-DISCORD_TOKEN=your_discord_token
-MEMBIT_API_KEY=your_membit_api_key
-GEMINI_API_KEY=your_gemini_api_key
+# 3) Create a .env file and add keys (example)
+cat > .env <<EOF
+DISCORD_TOKEN=your_discord_bot_token
+MEMBIT_API_KEY=your_membit_key
+GEMINI_API_KEY=your_gemini_key  # optional; leave blank to disable AI features
 COOLDOWN_SECONDS=12
+EOF
 
-###Run
+# 4) Run the bot
 python main.py
 
-___
-💬 6. Example Commands
 
-!hunt bitcoin
-!whatis defi
-!analyze the market is unstable
-!trend ethereum
-!context
+---
 
-🔥 7. The Grit Story
+✅ Environment Variables
 
-V61 was built 100% on a mobile phone, including debugging:
+DISCORD_TOKEN — required. Bot token.
 
-404 routing issues
+MEMBIT_API_KEY — required. Membit API key.
 
-429 rate-limits
+GEMINI_API_KEY — optional. If provided, AI features enable.
 
-AI “Empty parts” failures
+COOLDOWN_SECONDS — optional. Per-user cooldown for rate-limiting commands.
 
-Async race-conditions
-
-JSON inconsistencies
-
-
-> “If you want one thing, you must risk everything.”
-
-
-This build proves that persistence beats hardware.
 
 
 ---
 
-🎥 8. Demo Video
+📚 Usage (commands)
 
-👉 Add your link here
+!help — show available commands
 
-https://youtu.be/your-demo-video
+!hunt <keyword> — run Deep Hunt (clusters + sample posts + AI summary if available)
+
+!trend <keyword> — quick trend scan
+
+!analyze <text> — ask AI for sentiment (Gemini required)
+
+!whatis <term> — quick definition (Gemini required)
+
+!risk <text> — local heuristic risk scan (no AI needed)
+
+!mcp <method[:payload]> — safe MCP sandbox (e.g. list_capabilities, cluster_risk:<short text>)
+
 
 
 ---
 
-👤 9. Author
+🔒 Safety & Limitations
 
-Mettzy
-AI Integrator • Context Systems Builder
-Discord Bot Version: V61 – Narrative Build
+Gemini safety: some prompts (financial advice, token price predictions) may be blocked; the bot handles "empty parts" and safety blocks gracefully.
+
+Rate limits: the implementation minimizes AI calls (one AI call per hunt) and batches Membit queries to avoid hitting rate limits.
+
+MCP behavior: the repo provides a sandboxed MCP (read-only heuristics). It does not call or execute privileged MCP commands — this keeps the hackathon submission safe and portable.
+
 
 
 ---
-📜 License (MIT)
-MIT License
 
-Copyright (c) 2025
+📁 Repo structure (recommended)
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation…
+/ (root)
+├─ main.py            # main bot implementation (async aiohttp + discord.py)
+├─ README.md          # this file
+├─ .env.example       # example env values
+├─ proofs/            # screenshots used to demonstrate functionality
+└─ LICENSE
+
 
 ---
 
-> 🧠 “Context isn’t just data — it’s awareness. Membit gives AI its eyes.”
+🛠️ Development Notes & Tips
+
+When developing on mobile/Replit, ensure proper SSL support in your environment. Some Replit instances require custom SSL tweaks.
+
+If Gemini returns empty or SAFETY, rely on the local heuristic fallback (the bot already does this).
+
+For MCP-style features, prefer read-only utilities that transform cluster data into safe metadata (risk score, short summary) instead of executing actions.
 
 
 
+---
+
+👥 Judges Summary (one-liner for the hackathon)
+
+Membit Cluster Agent — a mobile-built, production-aware Discord prototype that demonstrates real-time data → human-ready context with a clear path to MCP-powered AI fusion.
+
+
+---
+
+📝 License
+
+This repository is licensed under the MIT License — see LICENSE for full text.
+
+
+---
+
+❤️ Contributing
+
+PRs and issues are welcome. If you want to help, try:
+
+improving tests and edge-case handling for rate limits
+
+adding unit tests for the heuristic risk engine
+
+improving prompt designs for Gemini (optional keys required)
 
 
 
+---
+
+If you want, I can also:
+
+generate a minimal .env.example file,
+
+create the LICENSE (MIT) file,
+
+produce a compact judges-ready submission (English).
 
 
+Tell me which one to add next and I’ll update the README accordingly.
+Clusterlusterluster
