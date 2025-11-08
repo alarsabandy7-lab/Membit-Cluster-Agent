@@ -1,132 +1,169 @@
-# 🧠 **Membit Context Agent — V62 (Local Risk Engine)**
-
-A dual-purpose submission for the **Membit Half-Hackathon**:
-
-1.  ✅ **A stable, production-ready Discord bot** (V67) using real-time Membit data.
-2.  ✅ **A narrative build** (V67) showing a clear architectural roadmap for full MCP integration.
-
-V67 demonstrates what can be built **today**, and *proves* we have a clear vision for what comes **next**.
-
-> **“Context isn't data — it's awareness. Membit gives AI its eyes.”**
+# 🧠 Membit Context Agent (V61) — Real-Time Intelligence System  
+### Built by Mettzy_ | Powered by Membit API + Gemini AI
 
 ---
 
-# 🚀 **1. Introduction**
+### ⚙️ Overview  
+**Membit Context Agent V61** is a Discord-based real-time intelligence bot designed to demonstrate how AI becomes *truly useful* when connected to human data.  
+It integrates **Membit Search API** with **lightweight Gemini reasoning**, turning raw social signals into actionable insights and community context.
 
-**Membit Context Agent** transforms real-time cluster data from the **Membit API** into actionable insights inside Discord.
-
-Unlike static AI bots, this agent uses:
-- **Real-time social signals** (Membit Clusters & Posts)
-- **Gemini AI reasoning** (for sentiment & summarization)
-- **A 100% Stable *Local* Risk Engine** (for `!risk` and `!hunt` coloring)
-- **Clean, latency-safe processing** (`aiohttp`)
-
-This combination equips AI with something it normally doesn’t have: **Awareness of what is happening *right now*.**
+The project is a living proof of constraint-driven engineering —  
+**fully built and iterated on mobile** (Replit), optimized under rate limits, SSL bugs, and parsing errors,  
+resulting in a lightweight yet stable agent that highlights Membit’s real-time data layer.
 
 ---
 
-# ✅ **2. Core Features (Stable & Fully Working)**
+### 🚀 Core Functional Features
 
-These are the 6 core features shipped in **V67** and tested for reliability.
+#### `!hunt <keyword>` — Real-Time Context Retrieval  
+- Fetches top Membit clusters and AI summaries in one command  
+- Resilient against 429 errors, empty payloads, and Gemini failures  
+- Produces insight blocks showing how **real-time context improves AI reasoning**
 
-### **`!hunt <keyword>` — Real-Time Cluster Hunting**
-Searches for up to 6 clusters using Membit’s Search API, cleans the text, and performs **one optimized Gemini call** to avoid rate-limits. Outputs include:
-- Cluster summaries & AI-generated overall insight
-- Related posts (X/Twitter or Web)
-- Color-coded risk/opportunity classifier
+#### `!analyze <text>` — Sentiment Layer  
+- Detects sentiment across community messages  
+- Returns *risk / neutral / positive* tags based on tone interpretation  
 
-### **`!analyze <text>` — AI Sentiment Analyzer**
-Provides a short, reasoning-based sentiment analysis (Positive/Negative/Neutral) using Gemini AI.
+#### `!whatis <term>` — Knowledge Quick-Look  
+- Provides instant AI definitions for Web3 / tech terms from clusters  
 
-### **`!risk <text>` — Local Risk Scanner (100% Stable)**
-This is our **local, heuristic (keyword-based) risk engine**. It does **NOT** call the AI, meaning it's 100% stable and will **never** fail with `Empty parts`. It provides instant risk recommendations (High Risk / Opportunity / Neutral).
+#### `!trend <keyword>` — Membit-Only Insight  
+- Displays cluster summaries *without* AI reasoning  
+- Demonstrates Membit’s pure data insight layer  
 
-### **`!whatis <term>` — AI Dictionary**
-Simple, fast definitions for Web3, tech, and AI terms using Gemini AI.
-
-### **`!trend <keyword>` — Data-Driven Trend Scanner**
-Pure Membit data analysis. Counts Positive/Risk indicators from the top 8 clusters.
-
-### **`!context` — Hackathon Context Command**
-A "hardcoded" stable command that explains the purpose of Membit’s real-time context and how it powers AI systems.
+#### `!context` — Hackathon Alignment  
+- Explains the core thesis:  
+  **AI is only as good as the human data it’s grounded in.**
 
 ---
 
-# 🔮 **3. V-Next Roadmap (Narrative Build)**
-
-V67 includes **1 intentionally disabled "experimental" command**.
-It replies with a **Roadmap Explanation** to show the limitations encountered and the clear vision for V-Next.
-
-### **`!compare <a> vs <b>` — MCP Cluster Comparator**
-* **Goal:** Use the official `/v1/clusters/compare` endpoint for native, data-driven comparisons (instead of AI guesses).
-* **Status:** Paused. Our tests (V51) failed, indicating we need to read the documentation more closely for the correct parameters (e.g., `topicA`, `topicB`).
-* **Roadmap:** Integrate the *real* Membit compare endpoint for superior results.
-
-*(We also paused exploration of `!hot` and `!dive` (MCP) due to API/model limitations documented in our V1-V60 debug journey.)*
+### 🔍 New Feature: `!mcp` (MCP-Lite Processor)
+An experimental, safe MCP-style reasoning layer that:  
+- Parses Membit cluster summaries  
+- Extracts risk & opportunity signals  
+- Demonstrates future MCP full-integration logic  
+- Showcases understanding of **MCP architecture** while remaining stable  
 
 ---
 
-# 🧩 **4. Architecture Overview**
-- **Async-first:** Uses `aiohttp` for non-blocking API calls.
-- **Optimized:** One AI call per workflow (in `!hunt`) to avoid 429 rate limits.
-- **Robust:** Strong sanitization filters (`clean_text`) and a **Local Risk Engine** (anti-`Empty parts`).
-- **Community-Ready:** Full cooldown system to prevent spam.
+### 🧭 Roadmap Demonstration  
+Commands intentionally **disabled** but present for technical evaluation:  
+
+| Command | Purpose |
+|----------|----------|
+| `!compare` | Future topic comparison engine using full MCP |
+| `!risk` | Advanced AI-driven risk scoring (high-tier model) |
+| `!hot` | Real-time trending clusters |
+| `!dive` | Deep cluster exploration by cluster ID |
+
+Each placeholder reflects **architecture readiness** for full Membit x MCP integration.
 
 ---
 
-# ⚙️ **5. Installation**
+### 🧩 Build Notes  
+- **60+ iterations** done entirely on mobile  
+- Fully patched for rate limit, API faults, and parsing instability  
+- Core architecture designed for **high uptime with low compute**  
+- Modular setup allows easy porting to MCP-compatible endpoints  
 
-### 1. Clone
-```bash
-git clone https://github.com/alarsabandy7-lab/Membit-Cluster-Agent.git
-cd Membit-Cluster-Agent
-```
-2. Install Dependencies
-```bash
-pip install -U discord.py aiohttp google-generativeai python-dotenv
-```
-3.Create .env file
-​Create a file named .env in the folder and add your keys:
-```bash
-DISCORD_TOKEN=your_discord_token
-MEMBIT_API_KEY=your_membit_key
-GEMINI_API_KEY=your_gemini_key
-COOLDOWN_SECONDS=12
-```
-4.Run
-```bash
-python main.py
-```
-​💬 6. Example Commands
-```bash
-!hunt bitcoin
-!whatis deflation
-!analyze the market looks unstable
-!risk The devs are anonymous and the liquidity is locked for only 3 days.
-!trend ethereum
-!context
-```
-​
-🔥 7. The "Grit Story"
+---
 
-This entire V67 build—from the initial V1 debug hell (404s, 429s, Empty parts, Falsbachink typos) to the final V67 "Local Risk Engine"—was coded, tested, and debugged 100% on a Realme Narzo 20 mobile phone.
+### 🌐 Vision  
+> *“AI without context is noise. Membit provides the human signal.”*
 
+**Membit Context Agent** aims to evolve into an adaptive reasoning layer  
+that reacts to social context in real time — from Discord chats to broader community ecosystems.  
 
-```bash
->“If you want one thing, you have to risk everything.”
-```
+Next phases include:
+- Direct MCP model integration  
+- Expanded insight classification (bias, volatility, trust-level)  
+- Persistent memory + interaction learning  
 
+---
 
-​🎥 8. Demo Video
-​Add your demo link here:Coming soon
+### 🪶 Credits  
+Developed by **Mettzy_**  
+> *Built entirely on mobile, powered by Membit’s data intelligence and Gemini AI.*  
+> *Prototype Version: V61 — Real-Time Context Engine.*
 
+Repository: [https://github.com/alarsabandy7-lab/Membit-Cluster-Agent](https://github.com/alarsabandy7-lab/Membit-Cluster-Agent)
 
-​👤 9. Author
-​Mettzy_ 
-AI Integrator • Context Systems Builder
-Bot Version: V67 - Local Risk Engine
+---
 
+---
 
-​📜 10. License
-​MIT License
-Copyright (c) 2025 Mettzy_
+## 🧩 System Architecture — Membit Context Agent (V61)
+.
+────────────────────────────┐
+            │        Discord Server       │
+            │  (User Interaction Layer)   │
+            └────────────┬────────────────┘
+                         │
+                         ▼
+            ┌─────────────────────────────┐
+            │  Membit Context Agent Core  │
+            │ (Command + Event Processor) │
+            └────────────┬────────────────┘
+                         │
+    ┌────────────────────┼────────────────────┐
+    │                    │                    │
+    ▼                    ▼                    ▼
+
+┌──────────────┐     ┌────────────────┐     ┌────────────────────┐ │  Membit API  │     │  Gemini AI API │     │  MCP-Lite Module   │ │ (Cluster Data│     │ (Reasoning +   │     │ (Experimental      │ │  Retrieval)  │     │  Summarization)│     │  Signal Extractor) │ └──────┬───────┘     └────────┬───────┘     └────────┬──────────┘ │                      │                      │ ▼                      ▼                      ▼ ┌───────────────────────────────────────────────────────────────┐ │                     Context Intelligence Layer                │ │  - Fuses Membit clusters + Gemini summaries                   │ │  - Extracts sentiment, risk, and trend context                │ │  - Returns unified insight blocks to Discord                  │ └───────────────────────────────────────────────────────────────┘ │ ▼ ┌──────────────────────────────┐ │  Output Rendering Engine     │ │ (Embeds, Insights, Messages) │ └──────────────────────────────┘ │ ▼ ┌─────────────────────────────┐ │   User (Community / Dev)    │ │  Receives Real-Time Insight │ └─────────────────────────────┘
+
+---
+---
+
+### 🧠 Data Flow Summary
+1. **Input:** User invokes bot commands via Discord (`!hunt`, `!trend`, `!mcp`, etc.)  
+2. **Retrieval:** Membit API fetches real-time cluster data.  
+3. **Processing:** Gemini AI (or MCP-Lite) summarizes + interprets insights.  
+4. **Fusion:** Context layer merges Membit clusters with AI reasoning.  
+5. **Output:** The bot delivers structured Discord embeds + insight tags.  
+
+---
+
+### 🧱 Core Modules
+| Module | Function | Status |
+|---------|-----------|--------|
+| Membit Handler | Handles API retrieval & validation | ✅ Stable |
+| Gemini Engine | Lightweight reasoning system | ⚙️ Patched (Retry-ready) |
+| MCP-Lite | Prototype context reasoner (risk/opportunity) | 🧪 Experimental |
+| Sentiment Engine | Analyzes tone and community polarity | ✅ Stable |
+| Trend Scanner | Membit-only insight mode | ✅ Stable |
+| Command Registry | Discord interaction manager | ✅ Stable |
+
+---
+
+### 🌍 Deployment Vision — *Phase 2 (Post-Hackathon)*  
+| Layer | Goal | Integration Path |
+|--------|------|------------------|
+| **Full MCP Integration** | Replace MCP-Lite with Band MCP endpoint | `band-mcp` adapter |
+| **Web Dashboard Sync** | Real-time Membit analytics UI | REST + Socket |
+| **Community Adaptive Mode** | Dynamic context memory per server | Local cache or KV store |
+| **Persistent Insight Storage** | Store cluster insights | SQLite / Supabase |
+| **Automated Trend Reports** | Daily digest & social mood | Scheduled task |
+
+---
+
+### ⚙️ Technical Summary  
+| Property | Value |
+|-----------|--------|
+| Platform | Discord (Python-based) |
+| Data Source | Membit Search API |
+| AI Engine | Gemini (lightweight model) |
+| Architecture | Modular micro-core |
+| Reliability | 60+ version-tested |
+| Development Setup | 100% Mobile (Replit) |
+| Purpose | Demonstrate Membit’s real-time data utility within AI context |
+
+---
+
+### 🪶 Quote
+> *“AI doesn’t need more parameters — it needs better context. Membit provides the signal, Band gives it structure.”*  
+
+---
+
+_Developed by **Mettzy_**  
+_Version: V61 — Context Intelligence Prototype_  
+_Built for the Membit Half-Hackathon, 2025_
