@@ -100,28 +100,88 @@ this shapes v-next into a **proactive context agent**.
 
 # ⚙️ 5. Installation
 
-# Clone repository
-git clone https://github.com/<your-username>/Membit-Cluster-Agent
+### Clone
+```bash
+git clone https://github.com/<your-username>/Membit-Cluster-Agent.git
 cd Membit-Cluster-Agent
 
-# Install dependencies
+###Install Dependencies
 pip install -U discord.py aiohttp google-generativeai python-dotenv
 
-# Create .env file
+###Create .env
 DISCORD_TOKEN=your_discord_token
 MEMBIT_API_KEY=your_membit_api_key
 GEMINI_API_KEY=your_gemini_api_key
 COOLDOWN_SECONDS=12
 
-# Run bot
+###Run
 python main.py
 
-# Example commands
+___
+💬 6. Example Commands
+
 !hunt bitcoin
 !whatis defi
-!analyze the market feels unstable
+!analyze the market is unstable
 !trend ethereum
 !context
 
-# Demo Video
-https://youtu.be/your-demo-link-here
+🔥 7. The Grit Story
+
+V61 was built 100% on a mobile phone, including debugging:
+
+404 routing issues
+
+429 rate-limits
+
+AI “Empty parts” failures
+
+Async race-conditions
+
+JSON inconsistencies
+
+
+> “If you want one thing, you must risk everything.”
+
+
+This build proves that persistence beats hardware.
+
+
+---
+
+🎥 8. Demo Video
+
+👉 Add your link here
+
+https://youtu.be/your-demo-video
+
+
+---
+
+👤 9. Author
+
+Mettzy
+AI Integrator • Context Systems Builder
+Discord Bot Version: V61 – Narrative Build
+
+
+---
+📜 License (MIT)
+MIT License
+
+Copyright (c) 2025
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation…
+
+---
+
+> 🧠 “Context isn’t just data — it’s awareness. Membit gives AI its eyes.”
+
+
+
+
+
+
+
+
