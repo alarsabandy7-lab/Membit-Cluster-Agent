@@ -100,20 +100,28 @@ this shapes v-next into a **proactive context agent**.
 
 # ⚙️ 5. Installation
 
-### Clone
-```bash
-git clone https://github.com/<your-username>/Membit-Cluster-Agent.git
+# Clone repository
+git clone https://github.com/<your-username>/Membit-Cluster-Agent
 cd Membit-Cluster-Agent
-pip install -u discord.py aiohttp google-generativeai python-dotenv
+
+# Install dependencies
+pip install -U discord.py aiohttp google-generativeai python-dotenv
+
+# Create .env file
 DISCORD_TOKEN=your_discord_token
 MEMBIT_API_KEY=your_membit_api_key
 GEMINI_API_KEY=your_gemini_api_key
 COOLDOWN_SECONDS=12
+
+# Run bot
 python main.py
+
+# Example commands
 !hunt bitcoin
 !whatis defi
-!analyze the market is unstable
+!analyze the market feels unstable
 !trend ethereum
 !context
 
-https://youtu.be/your-demo-videoture
+# Demo Video
+https://youtu.be/your-demo-link-here
