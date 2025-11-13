@@ -1,0 +1,6 @@
+```bash
+discord.py
+aiohttp
+google-generativeai
+python-dotenv
+```
