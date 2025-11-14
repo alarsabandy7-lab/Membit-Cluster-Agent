@@ -81,15 +81,14 @@ Next phases include:
 
 ---
 
-### 🪶 Credits  
-Developed by **Mettzy_**  
-> *Built entirely on mobile, powered by Membit’s data intelligence and Gemini AI.*  
-> *Prototype Version: V61 — Real-Time Context Engine.*
-
-Repository: [https://github.com/alarsabandy7-lab/Membit-Cluster-Agent](https://github.com/alarsabandy7-lab/Membit-Cluster-Agent)
 
 ---
-
+### ▶️ Run the Bot
+```
+pip install -r requirements.txt
+export DISCORD_TOKEN="your token"
+python main.py
+```
 ---
 
 ## 🧩 System Architecture — Membit Context Agent (V61)
