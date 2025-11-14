@@ -80,7 +80,12 @@ Next phases include:
 - Persistent memory + interaction learning  
 
 ---
-
+### 🗂️ Project Structure
+/main.py               → Entry point (run this file)
+/commands              → All bot commands (hunt, analyze, trend, etc.)
+/engine                → Membit + AI clients, MCP-lite processor
+requirements.txt       → Python dependencies
+README.md              → Documentation
 
 ---
 ### ▶️ Run the Bot
