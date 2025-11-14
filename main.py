@@ -1,14 +1,14 @@
-# Context Agent — Membit Intelligence Bot (V64 Sandbox Build)
+import os
+import discord
+from bot import create_bot
 
-import logging
-from cluster_agent_v61 import client
+def main():
+    token = os.getenv("DISCORD_TOKEN")
+    if not token:
+        raise Exception("DISCORD_TOKEN not found. Please set environment variable.")
+
+    bot = create_bot()
+    bot.run(token)
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
-    logging.info("===============================================================")
-    logging.info("🚀 Launching Context Agent V64 — Membit Intelligence Sandbox")
-    logging.info("===============================================================")
-    try:
-        client.run()
-    except KeyboardInterrupt:
-        logging.info("🛑 Gracefully shutting down Context Agent V64.")
+    main()
