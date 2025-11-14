@@ -1,1 +1,5 @@
-
+{
+    "DISCORD_TOKEN": "your-discord-token",
+    "MEMBIT_API_KEY": "your-membit-api-key",
+    "GEMINI_API_KEY": "your-gemini-api-key"
+}
