@@ -1,4 +1,4 @@
-# 🧠 Membit Context Agent (V61) — Real-Time Intelligence System  
+pointMembit Context Agent (V61) — Real-Time Intelligence System  
 ### Built by Mettzy_ | Powered by Membit API + Gemini AI
 
 ---
@@ -81,12 +81,14 @@ Next phases include:
 
 ---
 ### 🗂️ Project Structure
+
+```
 /main.py               → Entry point (run this file)
 /commands              → All bot commands (hunt, analyze, trend, etc.)
 /engine                → Membit + AI clients, MCP-lite processor
 requirements.txt       → Python dependencies
 README.md              → Documentation
-
+```
 ---
 ### ▶️ Run the Bot
 
