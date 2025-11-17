@@ -89,7 +89,8 @@ README.md              → Documentation
 
 ---
 ### ▶️ Run the Bot
-```
+
+```bash
 pip install -r requirements.txt
 export DISCORD_TOKEN="your token"
 python main.py
