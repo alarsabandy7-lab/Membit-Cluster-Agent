@@ -3,7 +3,7 @@
 
 ---
 
-### Built by Mettzy_ | Powered by Membit API + Gemini AI
+
 
 ---
 
