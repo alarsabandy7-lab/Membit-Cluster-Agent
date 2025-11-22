@@ -4,17 +4,13 @@
 
 ---
 
-
-
----
-
-### ⚙️ Overview  
+###⚙️ Overview  
 **Membit Context Agent V61** is a Discord-based real-time intelligence bot designed to demonstrate how AI becomes *truly useful* when connected to human data.  
 It integrates **Membit Search API** with **lightweight Gemini reasoning**, turning raw social signals into actionable insights and community context.
 
 The project is a living proof of constraint-driven engineering —  
 **fully built and iterated on mobile** (Replit), optimized under rate limits, SSL bugs, and parsing errors,  
-resulting in a lightweight yet stable agent that highlights Membit’s real-time data layer.
+resulting in a lightweight yet stable agent capable of Hybrid AI reasoning and Real-Time Data Visualization."
 
 ---
 
@@ -39,6 +35,12 @@ resulting in a lightweight yet stable agent that highlights Membit’s real-time
 #### `!context` — Hackathon Alignment  
 - Explains the core thesis:  
   **AI is only as good as the human data it’s grounded in.**
+
+
+#### 📊 !graph <keyword> — Real-Time Visual Intelligence (New!)
+* **On-the-Fly Generation:** Generates a real-time **PNG chart** showing engagement volatility across clusters.
+* **Tech Flex:** Built using `matplotlib` with non-blocking threading logic (asyncio) to ensure high performance even on low-resource environments.
+* **Why it matters:** Transforms raw data into **Visual Signals**, allowing users to spot hype spikes instantly without reading walls of text.
 
 ---
 
