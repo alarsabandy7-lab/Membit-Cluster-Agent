@@ -1,6 +1,6 @@
-```
 discord.py
 aiohttp
 google-generativeai
 python-dotenv
-```
+matplotlib
+cachetools
