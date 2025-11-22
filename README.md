@@ -4,7 +4,7 @@
 
 ---
 
-###⚙️ Overview  
+### ⚙️ Overview  
 **Membit Context Agent V61** is a Discord-based real-time intelligence bot designed to demonstrate how AI becomes *truly useful* when connected to human data.  
 It integrates **Membit Search API** with **lightweight Gemini reasoning**, turning raw social signals into actionable insights and community context.
 
